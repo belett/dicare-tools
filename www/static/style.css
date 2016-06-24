@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h2, h3, p, ul, table, pre {
+    margin: 16px;
+}
+ul {
+    margin-left: 48px;
+}
+.documentation p + ul {
+    margin-top: -12px;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 2px 8px;
+}
+tr:hover {
+    background: #F9F9F9;
+}
+
+body, input {
+    font-family: Roboto, sans-serif;
+    font-size: 100%;
+}
+p, ul {
+    line-height: 1.5em;
+}
+
+h2 {
+    font-size: 150%;
+    border-bottom: 1px solid #CCC;
+}
+h3 {
+    font-size: 125%;
+}
+
+input[type=text] {
+    width: 100%;
+    max-width: 300px;
+}
+textarea {
+    width: 100%;
+    max-width: 600px;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h2 a, h3 a, #menu a, .documentation a {
+    color: blue
+}
+#menu .license {
+    margin-top: -16px;
+    font-size: 80%;
+    color: #999;
+}
+
+.occupation {
+    color: red;
+}
+
+.stats tr {
+    border-top: 1px solid #CCC;
+}
+.stats th {
+    width: 100px;
+    background: #F9F9F9;
+}
+.stats td {
+    text-align: right;
+}
+.stats th.label {
+    width: 250px;
+}
+.stats th.ratio {
+    width: 200px;
+}
+.stats td.ratio {
+    text-align: left;
+}
+.stats td.label {
+    text-align: left;
+}
