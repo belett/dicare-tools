@@ -73,6 +73,7 @@ WHERE {
 }
 GROUP BY ?person
 ORDER BY ?personLabel
+# '.time().'
 ';
 
     $items = sparql::query($query);
