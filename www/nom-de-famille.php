@@ -1,6 +1,6 @@
 <?php
 
-define('PAGE_TITLE', 'Nom de famille');
+define('PAGE_TITLE', 'Ajout d\'un nom de famille');
 require '../inc/header.inc.php';
 
 echo '<h1>Ajout d\'un nom de famille</h1>
@@ -78,7 +78,7 @@ ORDER BY ?personLabel
 
     $items = sparql::query($query);
     
-    echo '<h2>Résultats [<a href="homonymie.php?id='.$id.'&amp;fallback='.urlencode(LANG_FALLBACK).'">Homonymie</a>, <a href="?id='.urlencode(page::getParameter('id')).'&amp;countries='.urlencode(page::getParameter('countries', 'Q142')).'">Permalien</a>]</h2>';
+    echo '<h2>Résultats [<a href="?id='.urlencode(page::getParameter('id')).'&amp;countries='.urlencode(page::getParameter('countries', 'Q142')).'">Permalien</a>, <a href="homonymie.php?id='.$id.'&amp;fallback='.urlencode(LANG_FALLBACK).'">Génération de la page d\'homonymie</a>]</h2>';
     if (count($items->results->bindings) === 0) {
         echo '<p>Aucun résultat.</p>';
     }

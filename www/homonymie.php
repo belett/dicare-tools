@@ -1,6 +1,6 @@
 <?php
 
-define('PAGE_TITLE', 'Homonymie');
+define('PAGE_TITLE', 'Génération d\'une page d\'homonymie');
 require '../inc/header.inc.php';
 
 echo '<h1>Génération d\'une page d\'homonymie</h1>
@@ -93,7 +93,7 @@ ORDER BY ?personLabel ?birthdate
     
     $items = sparql::query($query);
     
-    echo '<h2>Wikicode [<a href="nom-de-famille.php?id='.$id.'">Nom de famille</a>, <a href="?id='.urlencode(page::getParameter('id')).'&amp;fallback='.urlencode(page::getParameter('fallback', LANG_FALLBACK)).'">Permalien</a>]</h2><p>{{Patronymie}}<br />{{Nom de famille}}<br />';
+    echo '<h2>Wikicode [<a href="?id='.urlencode(page::getParameter('id')).'&amp;fallback='.urlencode(page::getParameter('fallback', LANG_FALLBACK)).'">Permalien</a>, <a href="nom-de-famille.php?id='.$id.'">Ajout du nom de famille</a>]</h2><p>{{Patronymie}}<br />{{Nom de famille}}<br />';
     foreach ($items->results->bindings as $item) {
         $label = @$item->personLabel->value;
         $page = @$item->wikipedia_fr->value;

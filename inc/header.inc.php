@@ -19,11 +19,11 @@ require '../inc/load.inc.php';
     <p>
         <strong>
             <a href=".">Documentation</a>
-            | <a href="nom-de-famille-suggestion.php">Suggestion</a>
-            | <a href="nom-de-famille.php">Nom de famille</a>
-            | <a href="homonymie.php">Homonymie</a>
+            | <a href="nom-de-famille.php">Ajout d'un nom de famille</a>
+            | <a href="homonymie.php">Génération d'une page d'homonymie</a>
+            | <a href="nom-de-famille-suggestions.php">Suggestions de noms de famille manquants</a>
             | <a href="departements.php">Statistiques</a>
         </strong>
     </p>
-    <p class="license">Outils Dicare par <a href="https://www.wikidata.org/wiki/User:Envlh">User:Envlh</a> | <a href="http://www.dicare.org/">dicare.org</a></p>
+    <p class="license">Outils Dicare par <a href="https://www.wikidata.org/wiki/User:Envlh">User:Envlh</a> | <a href="https://github.com/envlh/dicare-tools">Sources</a> | <a href="http://www.dicare.org/">dicare.org</a></p>
 </div>
