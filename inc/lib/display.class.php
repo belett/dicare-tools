@@ -2,6 +2,21 @@
 
 class display {
     
+    public static function formatDatesWithPrecision($dates, $precisions) {
+        $r = array();
+        $d = explode(',', $dates);
+        $p = explode(',', $precisions);
+        for ($i = 0; $i < count($d); $i++) {
+            if (!empty($p[$i])) {
+                $precision = $p[$i];
+            } else {
+                $precision = $p[0];
+            }
+            $r[] = self::formatDateWithPrecision($d[$i], $precision);
+        }
+        return implode(' ou ', $r);
+    }
+    
     public static function formatDateWithPrecision($date, $precision = 11) {
         if ($precision == 9) {
             return self::formatDate(substr($date, 0, 4), null, null);

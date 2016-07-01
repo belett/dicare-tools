@@ -132,15 +132,15 @@ ORDER BY ?personLabel ?birthdate
                 if (!empty($item->birthdate_quality->value) && ($item->birthdate_quality->value == 'http://www.wikidata.org/wiki/Q5727902')) {
                     echo 'circa ';
                 }
-                echo display::formatDateWithPrecision(@$item->birthdate->value, @$item->birthdate_precision->value);
+                echo display::formatDatesWithPrecision(@$item->birthdate->value, @$item->birthdate_precision->value);
             }
             echo ' - ';
             if (!empty($item->deathdate_quality->value) && ($item->deathdate_quality->value == 'http://www.wikidata.org/entity/Q5727902')) {
                 echo 'circa ';
             }
-            echo display::formatDateWithPrecision(@$item->deathdate->value, @$item->deathdate_precision->value).')';
+            echo display::formatDatesWithPrecision(@$item->deathdate->value, @$item->deathdate_precision->value).')';
         }
-        if (!empty($item->birthname->value) && ($item->birthname->value != $item->personLabel->value)) {
+        if (!empty($item->birthname->value) && ($item->birthname->value != $item->personLabel->value) && !preg_match('/^t[0-9]+$/', $item->birthname->value)) {
             echo ', né'.($female ? 'e' : '').' \'\'\''.htmlentities($item->birthname->value).'\'\'\'';
         }
         $aliases = array();
