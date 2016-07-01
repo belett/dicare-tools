@@ -1,19 +1,9 @@
 <?php
 
-/*
-TODO
-* {{Lien}} : utiliser P106 pour le paramètre fr= (c'est compliqué : il ne faut le faire que si la page sans P106 existe déjà)
-* tri des libellés débutant par une majuscule accentuée
-* mettre en valeur les éléments modifiés récemment
-* mettre un lien vers la page d'homonymie de Wikipédia sur Homonymies. Ainsi, on sait si elle existe ou bien on peut y accéder facilement.
-* si la date de décès est très largement supérieure à cent ans mais non renseignée, mettre un « ? »
-* Q5576697 né '''t292408173'''
-*/
-
 define('PAGE_TITLE', 'Homonymie');
 require '../inc/header.inc.php';
 
-echo '<h2>Homonymie</h2>
+echo '<h1>Génération d\'une page d\'homonymie</h1>
 <p>Cet outil génère, à partir des données Wikidata, le wikicode d\'une page d\'homonymie pour la Wikipédia en français.</p>
 <form method="post" action="homonymie.php">
 <p><label for="id">Identifiant Wikidata d\'un nom de famille</label> (exemple : Q23793569 pour <em>Tardy</em>) :<br /><input type="text" id="id" name="id" value="'.htmlentities(page::getParameter('id')).'" /></p>
@@ -164,7 +154,7 @@ ORDER BY ?personLabel ?birthdate
         $aliases = array_diff($aliases, array($item->personLabel->value));
         sort($aliases);
         if (!empty($aliases)) {
-            echo ', également connu'.($female ? 'e' : '').' comme \'\'\''.htmlentities(implode('\'\'\', \'\'\'', $aliases)).'\'\'\'';
+            echo ', également connu'.($female ? 'e' : '').' comme « '.htmlentities(implode(' », « ', $aliases)).' »';
         }
         if (!empty($item->personDescription->value)) {
             echo ', '.htmlentities($item->personDescription->value);

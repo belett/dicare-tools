@@ -3,7 +3,7 @@
 define('PAGE_TITLE', 'Nom de famille');
 require '../inc/header.inc.php';
 
-echo '<h2>Nom de famille</h2>
+echo '<h1>Ajout d\'un nom de famille</h1>
 <p>Cet outil génère le code <a href="https://tools.wmflabs.org/wikidata-todo/quick_statements.php">QuickStatements</a> pour ajouter rapidement un nom de famille à des éléments Wikidata n\'ayant pas la propriété <a href="https://www.wikidata.org/wiki/Property:P734">P734</a> renseignée.</p>
 <form method="post" action="nom-de-famille.php">
 <p><label for="id">Identifiant Wikidata d\'un nom de famille</label> (exemple : Q23777432 pour <em>Binet</em>) :<br /><input type="text" id="id" name="id" value="'.htmlentities(page::getParameter('id')).'" /></p>

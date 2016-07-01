@@ -5,11 +5,9 @@ require '../inc/header.inc.php';
 
 ?>
 
-<h2>Outils Dicare</h2>
+<h1>Outils Dicare</h1>
 
-<div class="documentation">
-
-<h3><a href="nom-de-famille-suggestion.php">Suggestion</a></h3>
+<h2><a href="nom-de-famille-suggestion.php">Suggestion</a></h2>
 <p>Cet outil sert à trouver des idées de noms de famille pour lesquels contribuer dans <a href="https://www.wikidata.org/">Wikidata</a>.</p>
 <p>Saisissez l'identifiant Wikidata d'un lieu (par exemple <a href="https://www.wikidata.org/wiki/Q12193">Q12193</a> pour <em>Brest</em>) puis cliquez sur <em>Lister</em>. L'outil affiche alors une liste de personnes présentes dans Wikidata, nées dans le lieu saisi et dont le <em>nom de famille</em> (<a href="https://www.wikidata.org/wiki/Property:P734">P734</a>) n'est pas connu. Les personnes sont regroupées par leur nom de famille, qui est détecté automatiquement. À vous ensuite de vérifier que les noms de famille existent dans Wikidata et, dans le cas contraire, de les créer.</p>
 <p>Limitations :<p>
@@ -18,7 +16,7 @@ require '../inc/header.inc.php';
     <li>l'affichage est limité à 1000 personnes.</li>
 </ul>
 
-<h3><a href="nom-de-famille.php">Nom de famille</a></h3>
+<h2><a href="nom-de-famille.php">Nom de famille</a></h2>
 <p>Cet outil sert à ajouter rapidement leur nom de famille aux personnes pour lesquelles l'information n'est pas présente dans <a href="https://www.wikidata.org/">Wikidata</a>.</p>
 <p>Saisissez l'identifiant Wikidata d'un nom de famille (par exemple <a href="https://www.wikidata.org/wiki/Q16877399">Q16877399</a> pour <em>Moreau</em>), cliquez sur <em>Lister</em>, puis patientez quelques secondes. L'outil affiche alors la liste des personnes présentes dans Wikidata, dont le <em>nom de famille</em> (<a href="https://www.wikidata.org/wiki/Property:P734">P734</a>) n'est pas connu et dont le libellé se termine comme le nom de famille saisi. Décochez les personnes pour lesquelles le nom de famille que vous avez saisi ne devrait pas être associé, puis cliquez sur <em>Générer</em>. L'outil affiche alors un code que vous pouvez copier-coller dans <a href="https://tools.wmflabs.org/wikidata-todo/quick_statements.php">QuickStatements</a> pour ajouter le nom de famille saisi aux personnes sélectionnées.</p>
 <p>Par défaut, seules les personnes ayant la propriété <em>nationalité</em> (<a href="https://www.wikidata.org/wiki/Property:P27">P27</a>) avec la valeur <em>France</em> (<a href="https://www.wikidata.org/wiki/Q142">Q142</a>) sont affichées. Vous pouvez saisir d'autres identifiants Wikidata de pays. Attention : plus il y a d'identifiants, plus la recherche sera longue, voire n'aboutira pas !</p>
@@ -29,7 +27,7 @@ require '../inc/header.inc.php';
     <li>il est impossible de trouver des personnes dont la propriété <em>nationalité</em> (<a href="https://www.wikidata.org/wiki/Property:P27">P27</a>) n'est pas renseignée.</li>
 </ul>
 
-<h3><a href="homonymie.php">Homonymie</a></h3>
+<h2><a href="homonymie.php">Homonymie</a></h2>
 <p>Cet outil génère, à partir des données <a href="https://www.wikidata.org/">Wikidata</a>, le wikicode d'une page d'homonymie pour la <a href="https://fr.wikipedia.org/">Wikipédia</a> en français.</p>
 <p>Saisissez l'identifiant Wikidata d'un nom de famille (par exemple <a href="https://www.wikidata.org/wiki/Q23722145">Q23722145</a> pour <em>Lagarde</em>), puis cliquez sur <em>Générer</em>.</p>
 <p>Détails :</p>
@@ -40,11 +38,9 @@ require '../inc/header.inc.php';
     <li>la mention « également connu comme » utilise les propriétés <em>pseudonyme</em> (<a href="https://www.wikidata.org/wiki/Property:P742">P742</a>) et <em>surnom</em> (<a href="https://www.wikidata.org/wiki/Property:P1449">P1449</a>).</li>
 </ul>
 
-<h3>Divers</h3>
+<h2>Divers</h2>
 <p>Chaque outil affiche, en bas de page, les requêtes SPARQL utilisées.</p>
 <p>Le code source des outils est disponible sur <a href="https://github.com/envlh/dicare-tools">GitHub</a>.</p>
-
-</div>
 
 <?php
 
