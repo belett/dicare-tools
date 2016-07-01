@@ -21,7 +21,7 @@ require '../inc/load.inc.php';
             <a href=".">Documentation</a>
             | <a href="nom-de-famille.php">Ajout d'un nom de famille</a>
             | <a href="homonymie.php">Génération d'une page d'homonymie</a>
-            | <a href="nom-de-famille-suggestions.php">Suggestions de noms de famille manquants</a>
+            | <a href="suggestions.php">Suggestions de noms de famille manquants</a>
             | <a href="departements.php">Statistiques</a>
         </strong>
     </p>

@@ -29,7 +29,7 @@ require '../inc/header.inc.php';
     <li>la mention « également connu comme » utilise les propriétés <em>pseudonyme</em> (<a href="https://www.wikidata.org/wiki/Property:P742">P742</a>) et <em>surnom</em> (<a href="https://www.wikidata.org/wiki/Property:P1449">P1449</a>).</li>
 </ul>
 
-<h2><a href="nom-de-famille-suggestions.php">Suggestions de noms de famille manquants</a></h2>
+<h2><a href="suggestions.php">Suggestions de noms de famille manquants</a></h2>
 <p>Cet outil sert à trouver des idées de noms de famille pour lesquels contribuer dans <a href="https://www.wikidata.org/">Wikidata</a>.</p>
 <p>Saisissez l'identifiant Wikidata d'un lieu (par exemple <a href="https://www.wikidata.org/wiki/Q12193">Q12193</a> pour <em>Brest</em>) puis cliquez sur <em>Lister</em>. L'outil affiche alors une liste de personnes présentes dans Wikidata, nées dans le lieu saisi et dont le <em>nom de famille</em> (<a href="https://www.wikidata.org/wiki/Property:P734">P734</a>) n'est pas connu. Les personnes sont regroupées par leur nom de famille, qui est détecté automatiquement. À vous ensuite de vérifier que les noms de famille existent dans Wikidata et, dans le cas contraire, de les créer.</p>
 <p>Limitations :<p>

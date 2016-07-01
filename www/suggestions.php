@@ -5,7 +5,7 @@ require '../inc/header.inc.php';
 
 echo '<h1>Suggestion de noms de famille manquants</h1>
 <p>Cet outil suggère des noms de famille manquants dans Wikidata, en filtrant sur un lieu de naissance.</p>
-<form method="post" action="nom-de-famille-suggestions.php">
+<form method="post" action="suggestions.php">
 <p><label for="id">Identifiant Wikidata d\'un lieu</label> (exemples : Q12193 pour Brest, Q3389 pour le Finistère ou Q142 pour la France) :<br /><input type="text" id="id" name="id" value="'.htmlentities(page::getParameter('id')).'" /></p>
 <p><input type="submit" value="Lister" /></p>
 </form>';
