@@ -7,7 +7,7 @@ require '../inc/header.inc.php';
 
 <h1>Outils Dicare</h1>
 
-<h2><a href="nom-de-famille.php">Ajout d'un nom de famille</a></h2>
+<h2><a href="nom-de-famille.php">Ajout en masse d'un nom de famille</a></h2>
 <p>Cet outil sert à ajouter rapidement leur nom de famille aux personnes pour lesquelles l'information n'est pas présente dans <a href="https://www.wikidata.org/">Wikidata</a>.</p>
 <p>Saisissez l'identifiant Wikidata d'un nom de famille (par exemple <a href="https://www.wikidata.org/wiki/Q16877399">Q16877399</a> pour <em>Moreau</em>), cliquez sur <em>Lister</em>, puis patientez quelques secondes. L'outil affiche alors la liste des personnes présentes dans Wikidata, dont le <em>nom de famille</em> (<a href="https://www.wikidata.org/wiki/Property:P734">P734</a>) n'est pas connu et dont le libellé se termine comme le nom de famille saisi. Décochez les personnes pour lesquelles le nom de famille que vous avez saisi ne devrait pas être associé, puis cliquez sur <em>Générer</em>. L'outil affiche alors un code que vous pouvez copier-coller dans <a href="https://tools.wmflabs.org/wikidata-todo/quick_statements.php">QuickStatements</a> pour ajouter le nom de famille saisi aux personnes sélectionnées.</p>
 <p>Par défaut, seules les personnes ayant la propriété <em>nationalité</em> (<a href="https://www.wikidata.org/wiki/Property:P27">P27</a>) avec la valeur <em>France</em> (<a href="https://www.wikidata.org/wiki/Q142">Q142</a>) sont affichées. Vous pouvez saisir d'autres identifiants Wikidata de pays. Attention : plus il y a d'identifiants, plus la recherche sera longue, voire n'aboutira pas !</p>
@@ -26,7 +26,8 @@ require '../inc/header.inc.php';
     <li>si la personne n'a pas de page dans la Wikipédia en français, et qu'une page existe dans une des langues saisies, le modèle {{<a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le:Lien">Lien</a>}} est utilisé en prenant en priorité la première langue ;</li>
     <li>la description affichée est celle de Wikidata. Si elle n'est pas renseignée, la propriété <em>occupation</em> (<a href="https://www.wikidata.org/wiki/Property:P106">P106</a>) est utilisée et affichée en rouge ;</li>
     <li>la mention « né » utilise la propriété <em>nom de naissance</em> (<a href="https://www.wikidata.org/wiki/Property:P1477">P1477</a>) ;</li>
-    <li>la mention « également connu comme » utilise les propriétés <em>pseudonyme</em> (<a href="https://www.wikidata.org/wiki/Property:P742">P742</a>) et <em>surnom</em> (<a href="https://www.wikidata.org/wiki/Property:P1449">P1449</a>).</li>
+    <li>la mention « également connu comme » utilise les propriétés <em>pseudonyme</em> (<a href="https://www.wikidata.org/wiki/Property:P742">P742</a>) et <em>surnom</em> (<a href="https://www.wikidata.org/wiki/Property:P1449">P1449</a>) ;</li>
+    <li>les personnes modifiées récemment dans Wikidata (24 heures) ont leur libellé affiché en gras.</li>
 </ul>
 
 <h2><a href="suggestions.php">Suggestions de noms de famille manquants</a></h2>

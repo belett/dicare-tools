@@ -25,6 +25,7 @@ if (!empty($_POST['fallback'])) {
 if ($id != null) {
     
     $query = 'SELECT ?person
+(GROUP_CONCAT(DISTINCT ?modified ; separator = ",") AS ?modified)
 (GROUP_CONCAT(DISTINCT ?personLabel ; separator = ",") AS ?personLabel)
 (GROUP_CONCAT(DISTINCT ?personDescription ; separator = ",") AS ?personDescription)
 (GROUP_CONCAT(DISTINCT ?birthname ; separator = ",") AS ?birthname)
@@ -44,6 +45,7 @@ if ($id != null) {
     }
     $query .= '
 WHERE {
+    ?person schema:dateModified ?modified .
     ?person wdt:P734 wd:'.$id.' .
     OPTIONAL { ?person rdfs:label ?personLabel FILTER (LANG(?personLabel) = "fr") . }
     OPTIONAL { ?person schema:description ?personDescription FILTER (LANG(?personDescription) = "fr") . }
@@ -94,11 +96,22 @@ ORDER BY ?personLabel ?birthdate
     $items = sparql::query($query);
     
     echo '<h2>Wikicode [<a href="?id='.urlencode(page::getParameter('id')).'&amp;fallback='.urlencode(page::getParameter('fallback', LANG_FALLBACK)).'">Permalien</a>, <a href="nom-de-famille.php?id='.$id.'">Ajout en masse du nom de famille</a>]</h2><p>{{Patronymie}}<br />{{Nom de famille}}<br />';
+    $time = time();
     foreach ($items->results->bindings as $item) {
+        echo '* ';
+        $modified = strtotime($item->modified->value);
+        if ($modified + 86400 >= $time) {
+            $modfiedRecently = true;
+        } else {
+            $modfiedRecently = false;
+        }
+        if ($modfiedRecently) {
+            echo '<strong>';
+        }
         $label = @$item->personLabel->value;
         $page = @$item->wikipedia_fr->value;
         $female = (!empty($item->gender->value) && $item->gender->value == 'http://www.wikidata.org/entity/Q6581072') ? true : false;
-        echo '* <a href="'.$item->person->value.'">';
+        echo '<a href="'.$item->person->value.'" title="dernière modification : '.date('Y-m-d H:i:s', $modified).'">';
         if ($page != null) {
             $page = rawurldecode(substr($page, 30));
             if ($page != $label) {
@@ -124,6 +137,9 @@ ORDER BY ?personLabel ?birthdate
             }
         }
         echo '</a>';
+        if ($modfiedRecently) {
+            echo '</strong>';
+        }
         if (!empty($item->birthdate->value) || !empty($item->deathdate->value)) {
             echo ' (';
             if (empty($item->birthdate->value)) {
