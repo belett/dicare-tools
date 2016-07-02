@@ -12,6 +12,8 @@ require '../inc/load.inc.php';
     <title><?php if (!empty(PAGE_TITLE)): echo htmlentities(PAGE_TITLE); endif; ?></title>
     <link rel="stylesheet" type="text/css" href="static/style.css" />
     <script type="text/javascript" src="static/script.js"></script>
+    <script type="text/javascript" src="static/sorttable/sorttable.js"></script>
+    <script type="text/javascript">sorttable.sort_alpha = function(a,b) { return a[0].localeCompare(b[0], 'fr'); }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
@@ -22,7 +24,7 @@ require '../inc/load.inc.php';
             | <a href="nom-de-famille.php">Ajout d'un nom de famille</a>
             | <a href="homonymie.php">Génération d'une page d'homonymie</a>
             | <a href="suggestions.php">Suggestions de noms de famille manquants</a>
-            | <a href="departements.php">Statistiques</a>
+            | Statistiques : <a href="departements.php">par département français</a>, <a href="pays.php">par pays</a>
         </strong>
     </p>
     <p class="license">Outils Dicare par <a href="https://www.wikidata.org/wiki/User:Envlh">User:Envlh</a> | <a href="https://github.com/envlh/dicare-tools">Sources</a> | <a href="http://www.dicare.org/">dicare.org</a></p>

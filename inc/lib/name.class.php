@@ -2,23 +2,24 @@
 
 class name {
     
-    public static function getStats($cache = 86400) {
+    public static function getStatsByDepartment($cache = 86400 * 30) {
         
-        $departements = array();
+        $departments = array();
         
         $query = 'SELECT ?departement ?insee ?label
 WHERE {
     ?departement wdt:P2586 ?insee .
     ?departement rdfs:label ?label .
-    FILTER (LANG(?label) = "fr")}
+    FILTER (LANG(?label) = "fr")
+}
 ORDER BY ?insee';
         $items = sparql::query($query, $cache);
         foreach ($items->results->bindings as $item) {
-            $departements[$item->insee->value]['qid'] = substr($item->departement->value, 31);
-            $departements[$item->insee->value]['label'] = $item->label->value;
+            $departments[$item->insee->value]['qid'] = substr($item->departement->value, 31);
+            $departments[$item->insee->value]['label'] = $item->label->value;
         }
         
-        foreach ($departements as $insee => &$value) {
+        foreach ($departments as $insee => &$value) {
             
             // total
             $query = 'SELECT (COUNT(*) AS ?count)
@@ -51,8 +52,62 @@ WHERE {
             
         }
         
-        return $departements;
+        return $departments;
         
+    }
+    
+    public static function getStatsByCountry($cache = 86400 * 30) {
+        
+        $countries = array();
+        
+        $query = 'SELECT ?country ?label
+WHERE {
+    ?country wdt:P31 wd:Q6256 .
+    ?country rdfs:label ?label .
+    FILTER (LANG(?label) = "fr")
+}
+ORDER BY ?label';
+        $items = sparql::query($query, $cache);
+        foreach ($items->results->bindings as $item) {
+            $qid = substr($item->country->value, 31);
+            $countries[$qid]['label'] = $item->label->value;
+        }
+        
+        foreach ($countries as $qid => &$value) {
+            
+            // total
+            $query = 'SELECT (COUNT(*) AS ?count)
+WHERE {
+    ?item wdt:P31 wd:Q5 .
+    ?item wdt:P27 wd:'.$qid.' .
+}';
+            $items = sparql::query($query, $cache);
+            $value['total'] = $items->results->bindings[0]->count->value;
+            
+            // lastname
+            $query = 'SELECT (COUNT(*) AS ?count)
+WHERE {
+    ?item wdt:P31 wd:Q5 .
+    ?item wdt:P734 ?anything .
+    ?item wdt:P27 wd:'.$qid.' .
+}';
+            $items = sparql::query($query, $cache);
+            $value['lastname'] = $items->results->bindings[0]->count->value;
+            
+            // firstname
+            $query = 'SELECT (COUNT(*) AS ?count)
+WHERE {
+    ?item wdt:P31 wd:Q5 .
+    ?item wdt:P735 ?anything .
+    ?item wdt:P27 wd:'.$qid.' .
+}';
+            $items = sparql::query($query, $cache);
+            $value['firstname'] = $items->results->bindings[0]->count->value;
+            
+        }
+        
+        return $countries;
+
     }
     
 }
