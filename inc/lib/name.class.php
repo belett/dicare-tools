@@ -22,7 +22,7 @@ ORDER BY ?insee';
         foreach ($departments as $insee => &$value) {
             
             // total
-            $query = 'SELECT (COUNT(*) AS ?count)
+            $query = 'SELECT (COUNT(DISTINCT ?item) AS ?count)
 WHERE {
     ?item wdt:P31 wd:Q5 .
     ?item wdt:P19/wdt:P131* wd:'.$value['qid'].' .
@@ -31,7 +31,7 @@ WHERE {
             $value['total'] = $items->results->bindings[0]->count->value;
             
             // lastname
-            $query = 'SELECT (COUNT(*) AS ?count)
+            $query = 'SELECT (COUNT(DISTINCT ?item) AS ?count)
 WHERE {
     ?item wdt:P31 wd:Q5 .
     ?item wdt:P734 ?anything .
@@ -41,7 +41,7 @@ WHERE {
             $value['lastname'] = $items->results->bindings[0]->count->value;
             
             // firstname
-            $query = 'SELECT (COUNT(*) AS ?count)
+            $query = 'SELECT (COUNT(DISTINCT ?item) AS ?count)
 WHERE {
     ?item wdt:P31 wd:Q5 .
     ?item wdt:P735 ?anything .
@@ -76,7 +76,7 @@ ORDER BY ?label';
         foreach ($countries as $qid => &$value) {
             
             // total
-            $query = 'SELECT (COUNT(*) AS ?count)
+            $query = 'SELECT (COUNT(DISTINCT ?item) AS ?count)
 WHERE {
     ?item wdt:P31 wd:Q5 .
     ?item wdt:P27 wd:'.$qid.' .
@@ -85,7 +85,7 @@ WHERE {
             $value['total'] = $items->results->bindings[0]->count->value;
             
             // lastname
-            $query = 'SELECT (COUNT(*) AS ?count)
+            $query = 'SELECT (COUNT(DISTINCT ?item) AS ?count)
 WHERE {
     ?item wdt:P31 wd:Q5 .
     ?item wdt:P734 ?anything .
@@ -95,7 +95,7 @@ WHERE {
             $value['lastname'] = $items->results->bindings[0]->count->value;
             
             // firstname
-            $query = 'SELECT (COUNT(*) AS ?count)
+            $query = 'SELECT (COUNT(DISTINCT ?item) AS ?count)
 WHERE {
     ?item wdt:P31 wd:Q5 .
     ?item wdt:P735 ?anything .
