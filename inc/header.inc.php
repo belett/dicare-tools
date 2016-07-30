@@ -18,14 +18,12 @@ require '../inc/load.inc.php';
 </head>
 <body>
 <div id="menu">
-    <p>
-        <strong>
-            <a href=".">Documentation</a>
-            | <a href="homonymie.php">Génération d'une page d'homonymie</a>
+    <ul>
+            <li>Outils Dicare : <a href=".">Documentation</a> | <a href="https://github.com/envlh/dicare-tools">Sources</a> | <a href="https://www.wikidata.org/wiki/User:Envlh">Contact</a> | <a href="http://www.dicare.org/">dicare.org</a></li>
+            <li>Noms de famille : <a href="homonymie.php">Génération d'une page d'homonymie</a>
             | <a href="nom-de-famille.php">Ajout en masse d'un nom de famille</a>
             | <a href="suggestions.php">Suggestions de noms de famille manquants</a>
-            | Statistiques : <a href="departements.php">par département français</a>, <a href="pays.php">par pays</a>
-        </strong>
-    </p>
-    <p class="license">Outils Dicare par <a href="https://www.wikidata.org/wiki/User:Envlh">User:Envlh</a> | <a href="https://github.com/envlh/dicare-tools">Sources</a> | <a href="http://www.dicare.org/">dicare.org</a></p>
+            | Statistiques : <a href="departements.php">par département français</a>, <a href="pays.php">par pays</a></li>
+            <li>Bateaux : <a href="bateaux.php">Listes</a></li>
+    </ul>
 </div>

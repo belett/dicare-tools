@@ -4,15 +4,16 @@
 }
 
 body, input {
-    font-family: "Open Sans", Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
 }
 
 p, ul {
-    line-height: 28px;
+    line-height: 24px;
 }
 pre {
-    line-height: 24px;
+    font-size: 15px;
+    line-height: 20px;
 }
 
 body {
@@ -39,7 +40,7 @@ h3 {
 }
 
 ul {
-    margin-left: 48px;
+    margin-left: 32px;
 }
 p + ul {
     margin-top: -8px;
@@ -76,10 +77,9 @@ a:hover {
 h2 a, h3 a, #menu a {
     color: blue
 }
-#menu .license {
-    margin-top: -8px;
-    font-size: 80%;
-    color: #999;
+#menu ul {
+    margin-left: 16px;
+    font-weight: bold;
 }
 
 .occupation {
@@ -107,4 +107,14 @@ h2 a, h3 a, #menu a {
 }
 .stats td.label {
     text-align: left;
+}
+
+.ships tr {
+    border-top: 1px solid #CCC;
+}
+.ships th {
+    background: #F9F9F9;
+}
+.ships td.label {
+    font-weight: bold;
 }
