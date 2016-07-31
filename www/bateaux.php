@@ -79,7 +79,7 @@ ORDER BY ?itemLabel
             echo '<td class="label">'.htmlentities($item->itemLabel->value).'</td>';
             
             if (empty($item->imo->value)) {
-                $imo = '';
+                $imo = '<a href=https://www.marinetraffic.com/en/ais/index/search/all?keyword='.urlencode($item->itemLabel->value).'>search</a>';
             } else {
                 $imo = explode(',', $item->imo->value);
                 sort($imo, SORT_NUMERIC);
@@ -91,7 +91,7 @@ ORDER BY ?itemLabel
             echo '<td>'.$imo.'</td>';
             
             if (empty($item->mmsi->value)) {
-                $mmsi = '';
+                $mmsi = '<a href=https://www.marinetraffic.com/en/ais/index/search/all?keyword='.urlencode($item->itemLabel->value).'>search</a>';
             } else {
                 $mmsi = explode(',', $item->mmsi->value);
                 sort($mmsi, SORT_NUMERIC);
